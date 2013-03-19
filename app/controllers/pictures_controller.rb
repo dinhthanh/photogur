@@ -5,14 +5,21 @@ class PicturesController < ApplicationController# NOT;
     @greeting = "Hello World"
 
     @pictures = [
-      'http://monicao.s3.amazonaws.com/bitmaker/house.jpg',
-      'http://monicao.s3.amazonaws.com/bitmaker/wave.jpg',
-      'http://monicao.s3.amazonaws.com/bitmaker/girl.jpg',
-      'http://monicao.s3.amazonaws.com/bitmaker/girl.jpg',
-      'http://monicao.s3.amazonaws.com/bitmaker/house.jpg',
-      'http://monicao.s3.amazonaws.com/bitmaker/wave.jpg',
-      'http://monicao.s3.amazonaws.com/bitmaker/wave.jpg'
+      {
+      :title => "The old church on the coast of White Sea",
+      :artist => "Sergey Ershov",
+      :url => "http://monicao.s3.amazonaws.com/bitmaker/house.jpg"
+      },
+      {
+      :title => "Sea Power",
+      :artist => "Stephen Scullion",
+      :url => "http://monicao.s3.amazonaws.com/bitmaker/wave.jpg"
+      },
+      {
+      :title => "Into the Poppies",
+      :artist => "John Wilhelm",
+      :url => "http://monicao.s3.amazonaws.com/bitmaker/girl.jpg"
+     }
     ]
-
   end
 end
