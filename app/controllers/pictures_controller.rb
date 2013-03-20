@@ -1,9 +1,25 @@
 class PicturesController < ApplicationController# NOT;
   ActionController::Base
 
-  def index
-    @greeting = "Hello World"
+  before_filter :load_pictures
 
+  def index
+  
+  end
+
+  def show
+    @picture = @pictures[params[:id].to_i]
+  end
+
+  def new
+    
+  end
+
+  def show2
+    @picture = @picture[1]
+  end
+
+  def load_pictures
     @pictures = [
       {
       :title => "The old church on the coast of White Sea",
