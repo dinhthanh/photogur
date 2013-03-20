@@ -12,7 +12,12 @@ class PicturesController < ApplicationController# NOT;
   end
 
   def new
-    
+
+  end
+
+  def create
+    #render :text => "Saving a picture. Url: #{params[:url]}, Title: #{:title}", Artist: #{:artist}"
+    #redirect_to 
   end
 
   def show2
