@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController# NOT;
+class PicturesController < ApplicationController# NOT; 
   ActionController::Base
 
   before_filter :load_pictures
@@ -16,7 +16,7 @@ class PicturesController < ApplicationController# NOT;
   end
 
   def create
-    #render :text => "Saving a picture. Url: #{params[:url]}, Title: #{:title}", Artist: #{:artist}"
+    render :text => "Saving a picture. Url: #{params[:url]}, Title: #{:title}, Artist: #{:artist}"
     #redirect_to 
   end
 
