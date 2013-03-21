@@ -1,4 +1,8 @@
 <h1>Add a picture</h1>
+
+<div class="errors">
+  <%= flash[:error] %>
+</div>
 <!--
   First version, plain html:
   <form action="/pictures" method="POST"> 
@@ -6,14 +10,22 @@
 <%= form_for @picture do |f| %>
   <p>
 	 <label>Artist</label><br>
+   
     <%= f.text_field "artist" %>
   </p>
+  
   <p>
-	 <label>Title</label><br>
+	 
+   <label>Title</label><br>
+   <div class="errors"><%= @picture.errors[:title][0] %></div>
+
+ </p>
+
     <%= f.text_field "title" %>
   </p>
   <p>
-	  <label>URL</label><br>
+    <label>URL</label><br>
+    <div class="errors"><%= @picture.errors[:url][0] %></div>
     <%= f.text_field "url" %>
   </p>
   <p>
