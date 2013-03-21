@@ -1,46 +1,56 @@
-class PicturesController < ApplicationController# NOT; 
-  ActionController::Base
-
-  before_filter :load_pictures
+class PicturesController < ApplicationController # NOT: ActionController::Base
 
   def index
-  
+    @pictures = Picture.all
   end
 
   def show
-    @picture = @pictures[params[:id].to_i]
+    # Where is id coming from? = the route (identifier)
+    @picture = Picture.find(params[:id])
   end
 
   def new
+  end
 
+  def update
+    # get the picture I want to update
+    @picture = Picture.find(params[:id])
+
+    # to get the new data for this picture use the params Hash
+
+    # get the new data for this picture
+    success = @picture.update_attributes(:artist => params[:artist],:title => params[:title], :url => params[:url]) 
+    # @user.update_attributes(:status => 'active')
+
+    # params[:artist]
+    # params[:title]
+    # params[:url]
+    # update the picture
+    # update_attributes
+    # redirect to the picture so I can see my changes
+
+    if success
+    redirect_to '/pictures'
+    end
   end
 
   def create
-    render :text => "Saving a picture. Url: #{params[:url]}, Title: #{:title}, Artist: #{:artist}"
-    #redirect_to 
+    @picture = Picture.new
+    @picture.url = params[:url]
+    @picture.title = params[:title]
+    @picture.artist = params[:artist]
+    well_done = @picture.save
+    if well_done
+      redirect_to pictures_path #same as '/picture'
+    end
+    #render :text => "Save pic. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}" 
   end
 
-  def show2
-    @picture = @picture[1]
+  def edit
+    @picture = Picture.find(params[:id])
   end
 
-  def load_pictures
-    @pictures = [
-      {
-      :title => "The old church on the coast of White Sea",
-      :artist => "Sergey Ershov",
-      :url => "http://monicao.s3.amazonaws.com/bitmaker/house.jpg"
-      },
-      {
-      :title => "Sea Power",
-      :artist => "Stephen Scullion",
-      :url => "http://monicao.s3.amazonaws.com/bitmaker/wave.jpg"
-      },
-      {
-      :title => "Into the Poppies",
-      :artist => "John Wilhelm",
-      :url => "http://monicao.s3.amazonaws.com/bitmaker/girl.jpg"
-     }
-    ]
-  end
+  #def show2
+    #@picture = @picture[1]
+  #end
 end
