@@ -1,24 +1,22 @@
 <h1>Add a picture</h1>
-
-<!--<form action="/pictures" method="POST"> -->
-<%= form_tag "/pictures" do %>
+<!--
+  First version, plain html:
+  <form action="/pictures" method="POST"> 
+  -->
+<%= form_for @picture do |f| %>
   <p>
-	<label>Artist</label><br>
-	<!-- <input type="text" name="artist"/> -->
-  <%= text_field_tag "artist" %>
+	 <label>Artist</label><br>
+    <%= f.text_field "artist" %>
   </p>
   <p>
-	<label>Title</label><br>
-	<!-- <input type="text" name="title"/> -->
-  <%= text_field_tag "title" %>
+	 <label>Title</label><br>
+    <%= f.text_field "title" %>
   </p>
   <p>
-	<label>URL</label><br>
-	<!-- <input type="text" name="url"/> -->
-  <%= text_field_tag "url" %>
+	  <label>URL</label><br>
+    <%= f.text_field "url" %>
   </p>
   <p>
-	<input type="submit"/>
+    <%= f.submit "Save" %>
   </p>
-<!-- </form> -->
 <% end %>

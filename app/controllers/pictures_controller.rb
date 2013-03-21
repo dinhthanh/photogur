@@ -10,6 +10,7 @@ class PicturesController < ApplicationController # NOT: ActionController::Base
   end
 
   def new
+    @picture = Picture.new
   end
 
   def update
@@ -35,22 +36,22 @@ class PicturesController < ApplicationController # NOT: ActionController::Base
   end
 
   def create
-    @picture = Picture.new
-    @picture.url = params[:url]
-    @picture.title = params[:title]
-    @picture.artist = params[:artist]
-    well_done = @picture.save
-    if well_done
-      redirect_to pictures_path #same as '/picture'
-    end
+    #@picture = Picture.new
+    #@picture.url = params[:url]
+    #@picture.title = params[:title]
+    #@picture.artist = params[:artist]
+    #well_done = @picture.save
+    #if well_done
+     # redirect_to pictures_path #same as '/picture'
+    #end
     #render :text => "Save pic. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}" 
+    if @picture = Picture.create!(params[:picture])
+      redirect_to '/pictures'
+    end
+    #success = picture.save
   end
 
   def edit
     @picture = Picture.find(params[:id])
   end
-
-  #def show2
-    #@picture = @picture[1]
-  #end
 end

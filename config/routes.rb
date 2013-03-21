@@ -1,20 +1,24 @@
 Photogur::Application.routes.draw do
+  root :to => 'pictures#index'
+  
+  resources :pictures
 
   # Order matters! Rails matches routes in order
   
-  get 'pictures' => 'pictures#index'
+  #get 'pictures' => 'pictures#index'
 
-  get 'pictures/:id/edit' => 'pictures#edit'
-  post 'pictures/:id' => 'pictures#update'
+
+  #get 'pictures/:id/edit' => 'pictures#edit'
+  #post 'pictures/:id' => 'pictures#update'
 
   # Post vs Get
   # Post sends information to the server instead of just getting information
   #
 
-  get 'pictures/new' => 'pictures#new' # gets information to create new picture
-  post 'pictures' => 'pictures#create' # sends information  
+  #get 'pictures/new' => 'pictures#new' # gets information to create new picture
+  #post 'pictures' => 'pictures#create' # sends information  
 
-  get 'pictures/:id' => 'pictures#show' # 
+  #get 'pictures/:id' => 'pictures#show' # 
   #get 'pictures/2' => 'pictures#show2'
   #get 'pictures/3' => 'pictures#show3
 
