@@ -1,7 +1,11 @@
 class PicturesController < ApplicationController # NOT: ActionController::Base
 
   def index
+    if params[:free] == "yes"
+      @pictures = Picture.where(:copyrighted => false)
+    else
     @pictures = Picture.all
+    end
   end
 
   def show
