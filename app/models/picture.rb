@@ -1,9 +1,14 @@
 class Picture < ActiveRecord::Base
 	# Allow mass-assingment for the attributes title and artist
-	attr_accessible :title, :artist, :url
+	attr_accessible :title, :artist, :url, :copyrighted
 	# Don't confuse with attr_accessor
   validates :title, :presence => true
-  validates :url, :presence => true
+  validates :url, {
+    :presence => true,
+    :format => {
+    :with => /^https?:/, :message => "Please enter a valid URL"
+    }
+  }
 end
  
 # >> p = Person.new

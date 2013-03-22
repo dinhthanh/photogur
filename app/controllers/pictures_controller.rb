@@ -25,12 +25,18 @@ class PicturesController < ApplicationController # NOT: ActionController::Base
       if @picture.save
         redirect_to @picture
       else
-        flash.now[:error] = "Could not save the picture"
+        flash.now[:error] = "Could not save the picture. Please try again."
         render :new
       end
   end
 
   def edit
     @picture = Picture.find(params[:id])
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to pictures_path
   end
 end
