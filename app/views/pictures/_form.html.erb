@@ -1,34 +1,29 @@
 <%= form_for @picture do |f| %>
   
   <p>
-   <label>City</label><br>
-   </p>
-  <%= f.text_field "artist" %>
+    <label>City</label><br>
+  </p>
+      
+    <%= f.text_field "artist" %>
+    
   <p>
-   
-   <label>Title</label><br>
-   <!-- <%= @picture.errors.messages[:title] %>-->
-   
-   <div class="errors"><%= @picture.errors[:title][0] %></div>
-
- </p>
+    <label>Title</label><br>
+      <div class="errors"><%= @picture.errors[:title][0] %></div>
+  </p>
 
     <%= f.text_field "title" %>
-  </p>
+
   <p>
     <label>URL</label><br>
-    <div class="errors"><%= @picture.errors[:url][0] %></div>
-    <%= f.text_field "url" %>
+      <div class="errors"><%= @picture.errors[:url][0] %></div>
+        <%= f.text_field "url" %>
   </p>
+    
   <p>
-    <p>
-      
-      <%= f.check_box "copyrighted" %>
-      <%= f.label "copyrighted", "Photo is Copyrighted" %>
-
-
-    </p>
-    <%= f.submit "Save" %>
+    <%= f.check_box "copyrighted" %>
+    <%= f.label "copyrighted", "Photo is Copyrighted" %>
   </p>
+    
+    <%= f.submit "Save" %>
 
   <% end %>
