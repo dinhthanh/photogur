@@ -1,3 +1,15 @@
 @import "bootstrap";
-body { padding-top: 60px; }
+
+body { 
+  padding-top: 10px;
+  font-size: 25px;
+  font-family: Arial,sans-serif;
+  color: #ddddd1;
+  height: 100%;
+  background-color: #121211;
+  line-height: 40px;
+  margin: 25px;
+  text-align: center;
+}
+
 @import "bootstrap-responsive";
