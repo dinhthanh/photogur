@@ -1,20 +1,20 @@
 <%= form_for @picture do |f| %>
   
   <p>
-    <label>City</label><br>
+    <label>City</label>
   </p>
       
     <%= f.text_field "artist" %>
     
   <p>
-    <label>Title</label><br>
+    <label>Title</label>
       <div class="errors"><%= @picture.errors[:title][0] %></div>
   </p>
 
     <%= f.text_field "title" %>
 
   <p>
-    <label>URL</label><br>
+    <label>URL</label>
       <div class="errors"><%= @picture.errors[:url][0] %></div>
         <%= f.text_field "url" %>
   </p>
